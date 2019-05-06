@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnOK = findViewById(R.id.btnOK);
         EditText edtPseudo = findViewById(R.id.edtPseudo);
 
-
         // Seconde stratégie
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 alerter("clic par instanciation d'un nouvel onclicklistener spécifique pour le clic sur le bouton");
             }
         });
-
 
 
         // Troisième stratégie
