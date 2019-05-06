@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">PMR_exo1</string>
     <string name="hello">Hello World!</string>
+    <string name="hello_app">Hello App !</string>
+    <string name="nom">Nom :</string>
+    <string name="name">Name</string>
 </resources>
