@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,6 +40,25 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
+    public static String jsonToPrettyFormat(String jsonString) {
+        JSONObject json = null;
+        try {
+            json = new JSONObject(jsonString);
+            Gson gson = new GsonBuilder()
+                    .serializeNulls()
+                    .disableHtmlEscaping()
+                    .setPrettyPrinting()
+                    .create();
+
+            return gson.toJson(json);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "chaine impossible à interpréter";
+        }
+
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,5 +85,10 @@ public class SecondActivity extends AppCompatActivity {
         // Affichage d'un objet JSON
         afficherChaineJson(json_chaine);
 
+        // Affichage de la chaine initiale
+        Log.i(CAT,json_chaine);
+
+        // Affichage de la chaine en "pretty printing"
+        Log.i(CAT,jsonToPrettyFormat(json_chaine));
     }
 }
