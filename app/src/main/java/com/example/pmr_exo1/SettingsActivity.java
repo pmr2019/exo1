@@ -8,6 +8,7 @@ public class SettingsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //noinspection deprecation
         addPreferencesFromResource(R.xml.preferences);
     }
