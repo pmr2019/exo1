@@ -28,9 +28,6 @@ import java.util.Date;
 
 // TODO 4.2 : Créer une activité 'SettingActivity' permettant de gérer les préférences
 
-
-// TODO 4 : Dans l’activité suivante, relire les préférences et les afficher
-
 // TODO 4 : Vérifier la sauvegarde des préférences lorsque l’application est détruite
 //  Paramètres de l'application => Stop Application
 //  On la relance => Les données sont toujours là
