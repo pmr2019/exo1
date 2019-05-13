@@ -8,9 +8,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+// L'activité implémente l'interface 'onClickListener'
+// Une 'interface' est un "contrat"
+// qui définit des fonctions à implémenter
+// Ici, l'interface "onClickLister" demande que la classe
+// qui l'implémente fournisse une méthode onClick
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public final String CAT="PMR";
+    private Button btnOK = null;
+    private EditText edtPseudo = null;
 
     private void alerter(String s) {
         Log.i(CAT,s);
@@ -24,24 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         alerter("onCreate");
 
-        Button btnOK = findViewById(R.id.btnOK);
-        EditText edtPseudo = findViewById(R.id.edtPseudo);
-
-        // Seconde stratégie
-        btnOK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alerter("clic par instanciation d'un nouvel onclicklistener spécifique pour le clic sur le bouton");
-            }
-        });
-
-
-        // Troisième stratégie
-        // L'activité implémente l'interface 'onClickListener'
-        // Une 'interface' est un "contrat"
-        // qui définit des fonctions à implémenter
-        // Ici, l'interface "onClickLister" demande que la classe
-        // qui l'implémente fournisse une méthode onClick
+        btnOK = findViewById(R.id.btnOK);
+        edtPseudo = findViewById(R.id.edtPseudo);
 
         btnOK.setOnClickListener(this);
         edtPseudo.setOnClickListener(this);
@@ -54,11 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alerter("onStart");
     }
 
-    // Première stratégie
-    public void foo(View view) {
-        alerter("clic par attribut onClick sur la vue dans le layout");
-    }
-
     @Override
     public void onClick(View v) {
         alerter("clic par l'activité qui implémenter l'interface onClickListener");
@@ -66,18 +53,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Démonstration :
         switch (v.getId()) {
             case R.id.btnOK :
-                    alerter("Clic sur Bouton");
+                // TODO 1 : afficher le contenu du champ d'entrée texte
+                // TODO 1 : refactoriser la classe pour que les références
+                //  deviennent des membres privés
+                // TODO 1 : supprimer les morceaux de code inutiles
+                alerter("Pseudo: " + edtPseudo.getText().toString());
                 break;
 
             case R.id.edtPseudo :
-                alerter("Clic sur champ texte");
+                alerter("Saisir votre pseudo");
                 break;
 
         }
     }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
 
-    }
 }
