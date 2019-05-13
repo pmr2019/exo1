@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 // L'activité implémente l'interface 'onClickListener'
 // Une 'interface' est un "contrat"
 // qui définit des fonctions à implémenter
@@ -25,8 +28,6 @@ import android.widget.Toast;
 
 // TODO 4.2 : Créer une activité 'SettingActivity' permettant de gérer les préférences
 
-// TODO 4 : Lors du clic sur le bouton OK,
-//  sauvegarder les préférences avant de passer à l’activité suivante
 
 // TODO 4 : Dans l’activité suivante, relire les préférences et les afficher
 
@@ -97,6 +98,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String pseudo = edtPseudo.getText().toString();
                 alerter("Pseudo: " + pseudo);
 
+                // TODO 4.4 : Lors du clic sur le bouton OK,
+                //  sauvegarder les préférences avant de passer à l’activité suivante
+                SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.clear();
+                // pseudo
+                editor.putString("pseudo",pseudo);
+
+                // heure de connexion
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                String dateLogin = sdf.format(new Date());
+                editor.putString("dateLogin",dateLogin);
+
+                editor.commit();
+
+
                 // TODO 3 : Créer une nouvelle activité => assistant
                 // TODO 3 : Lors du clic sur le bouton OK,
                 //  afficher la nouvelle activité en lui passant
@@ -112,10 +129,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 // Changement d'activité
                 startActivity(toSecondAct);
-
-
-                // TODO 3 : Afficher le contenu récupéré dans un toast
-                // => Cf. activité Second
 
 
                 break;
