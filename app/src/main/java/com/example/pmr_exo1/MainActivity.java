@@ -1,5 +1,6 @@
 package com.example.pmr_exo1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -59,7 +60,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // TODO 1 : refactoriser la classe pour que les références
                 //  deviennent des membres privés
                 // TODO 1 : supprimer les morceaux de code inutiles
-                alerter("Pseudo: " + edtPseudo.getText().toString());
+                String pseudo = edtPseudo.getText().toString();
+                alerter("Pseudo: " + pseudo);
+
+                // TODO 3 : Créer une nouvelle activité => assistant
+                // TODO 3 : Lors du clic sur le bouton OK,
+                //  afficher la nouvelle activité en lui passant
+                //  le contenu du champ d’entrée texte
+
+                Intent toSecondAct =
+                        new Intent(this,SecondActivity.class);
+
+                // Ajout d'un bundle de données
+                Bundle data = new Bundle();
+                data.putString("pseudo",pseudo);
+                toSecondAct.putExtras(data);
+
+                // Changement d'activité
+                startActivity(toSecondAct);
+
+
+                // TODO 3 : Afficher le contenu récupéré dans un toast
+                // => Cf. activité Second
+
+
                 break;
 
             case R.id.edtPseudo :
