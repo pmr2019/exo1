@@ -41,6 +41,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnOK.setOnClickListener(this);
         edtPseudo.setOnClickListener(this);
 
+        // TODO 4 : Créer un fichier preferenceScreen
+        //  permettant de définir une clé baptisée “pseudo”
+        //  => Fichier dans res/xml/preferences.xml
+
+        // TODO 4 : Créer une activité 'SettingActivity' permettant de gérer les préférences
+
+        // TODO 4 : Lors du clic sur le menu préférences,
+        //  afficher l'activité 'SettingActivity'
+
+        // TODO 4 : Au démarrage de l’activité principale,
+        //  lire les préférences et compléter le champ d’entrée texte
+
+        // TODO 4 : Lors du clic sur le bouton OK,
+        //  sauvegarder les préférences avant de passer à l’activité suivante
+
+        // TODO 4 : Dans l’activité suivante, relire les préférences et les afficher
+
+        // TODO 4 : Vérifier la sauvegarde des préférences lorsque l’application est détruite
+        // TODO 4 : Comment réinitialiser les préférences ?
+
+
+
     }
 
     @Override
@@ -110,6 +132,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.action_settings :
                 alerter("Menu Préférences");
+                Intent toSettings = new Intent(this,SettingsActivity.class);
+                startActivity(toSettings);
                 break;
 
         }
