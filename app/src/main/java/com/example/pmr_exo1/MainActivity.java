@@ -38,7 +38,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public final String CAT="PMR";
+    public final String CAT="PMR_Logs";
     private Button btnOK = null;
     private EditText edtPseudo = null;
 
